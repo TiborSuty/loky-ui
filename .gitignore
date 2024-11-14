@@ -67,6 +67,7 @@ apps/digital-certificate/downloads
 **/__image_snapshots__/*.actual.png
 
 # Expo
+storybook-static/
 node_modules/
 .yarn/
 dist/
