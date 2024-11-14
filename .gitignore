@@ -1,0 +1,92 @@
+# See http://help.github.com/ignore-files/ for more about ignoring files.
+
+# compiled output
+/dist
+/tmp
+/out-tsc
+dist
+build
+coverage
+libs/coverage
+out-tsc
+
+# dependencies
+/node_modules
+
+node_modules
+
+# IDEs and editors
+/.idea
+idea
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+
+# IDE - VSCode
+vscode
+.vscode/*
+!.vscode/extensions.json
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+.orig
+chromatic.log
+build-storybook.log
+chromatic-diagnostics.json
+
+# System Files
+.DS_Store
+Thumbs.db
+
+.eslintcache
+/.eslintcache
+
+*.generated.stories.tsx
+*.generated.ts
+*.generated.tsx
+dev--*generated*
+.tmp/
+tools/report-cypress-errors/failedTests.json
+
+# Cypress
+apps/price-report/downloads
+apps/digital-certificate/downloads
+
+# Cypress failed visual snapshots
+**/__image_snapshots__/*.diff.png
+**/__image_snapshots__/*.actual.png
+
+# Expo
+node_modules/
+.yarn/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+cache/
+
+# Local Netlify folder
+.netlify
+
+# OpenAI key
+tools/headstart/.env
+
+# Translations
+libs/omnetic-dms/shared/src/i18n/locales/*.json
+
+.nx/cache
