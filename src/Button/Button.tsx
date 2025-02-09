@@ -1,37 +1,46 @@
-import React from 'react';
+import React from "react";
+import {
+  Button as RadixButton,
+  ButtonProps as RadixButtonProps,
+} from "@radix-ui/themes";
 
-import './button.css';
+import styles from "./button.module.css";
+import { cva } from "class-variance-authority";
+import { LucideIcon } from "lucide-react";
+
+const button = cva(styles.button, {
+  variants: {
+    variant: {
+      danger: styles["Button-danger"],
+      primary: styles["Button-primary"],
+      secondary: styles["Button-secondary"],
+    },
+  },
+});
 
 export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
-  size?: 'small' | 'medium' | 'large';
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
-  onClick?: () => void;
+  size?: RadixButtonProps["size"];
+  variant?: RadixButtonProps["variant"] | "primary" | "secondary" | "danger";
+  radius?: RadixButtonProps["radius"];
+  isLoading?: RadixButtonProps["loading"];
+  form?: string;
+  icon?: LucideIcon;
+  title: string;
 }
 
 /** Primary UI component for user interaction */
-export const Button = ({
-  primary = false,
-  size = 'medium',
-  backgroundColor,
-  label,
-  ...props
-}: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = (props: ButtonProps) => {
   return (
-    <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
-      {...props}
+    <RadixButton
+      variant={props.variant}
+      size={props.size}
+      radius={props.radius}
+      loading={props.isLoading}
+      form={props.form}
+      className={button({ variant: props.variant })}
     >
-      {label}
-    </button>
+      {props.icon && <props.icon className="mr-2" />}
+      {props.title}
+    </RadixButton>
   );
 };

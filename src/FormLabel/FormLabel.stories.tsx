@@ -1,9 +1,9 @@
 import { StoryObj } from "@storybook/react";
-import { Label } from "./Label";
+import { FormLabel } from "./FormLabel";
 
 const meta = {
   title: "Label",
-  component: Label,
+  component: FormLabel,
 };
 
 export default meta;

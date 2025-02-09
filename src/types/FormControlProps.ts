@@ -1,14 +1,22 @@
-import {ChangeEvent, ClipboardEventHandler, FocusEventHandler, KeyboardEventHandler} from 'react';
+import {
+  ChangeEvent,
+  ClipboardEventHandler,
+  FocusEventHandler,
+  KeyboardEventHandler,
+} from "react";
+import { Nullish } from "./Nullish";
 
-import {Nullish} from 'shared';
-
-export interface FormControlProps<
+export type FormControlProps<
   ValueType,
   ElementType = HTMLInputElement,
   RestParams extends unknown[] = [],
-> {
+> = {
   value: ValueType;
-  onChange?: (value: ValueType, event?: ChangeEvent<ElementType>, ...args: RestParams) => void;
+  onChange?: (
+    value: ValueType,
+    event?: ChangeEvent<ElementType>,
+    ...args: RestParams
+  ) => void;
   onBlur?: FocusEventHandler<ElementType>;
   onFocus?: FocusEventHandler<ElementType>;
   onPaste?: ClipboardEventHandler<ElementType>;
@@ -21,9 +29,4 @@ export interface FormControlProps<
   tooltip?: string | Nullish;
   errorMessage?: string | Nullish;
   helperText?: string;
-}
-
-export type OptionType<ValueType = string, LabelType = string> = {
-  value: ValueType;
-  label: LabelType;
 };

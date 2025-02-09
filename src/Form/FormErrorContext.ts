@@ -1,9 +1,11 @@
-import {createContext} from 'react';
-import {FieldError} from 'react-hook-form';
+import { createContext } from "react";
+import { FieldError } from "react-hook-form";
+import { Nullish } from "../types/Nullish";
 
-import {Nullish} from 'shared';
-
-export type SetFormErrorCallback = (name: string, error: FieldError | Nullish) => void;
+export type SetFormErrorCallback = (
+  name: string,
+  error: FieldError | Nullish,
+) => void;
 
 /**
  * @about Provides a callback which allows
@@ -13,4 +15,6 @@ export type SetFormErrorCallback = (name: string, error: FieldError | Nullish) =
  * errors for specific wizard step.
  *
  */
-export const FormErrorContext = createContext<SetFormErrorCallback | null>(null);
+export const FormErrorContext = createContext<SetFormErrorCallback | null>(
+  null,
+);

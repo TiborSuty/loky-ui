@@ -1,40 +1,58 @@
-import React from "react";
-import * as Select from "@radix-ui/react-select";
+import React, { useId } from "react";
+import styles from "./select.module.css";
+import { Check, ChevronDown, ChevronUp } from "lucide-react";
+import { VStack } from "../VStack/VStack";
+import { FormControlProps } from "../types/FormControlProps";
+import { FormLabel } from "../FormLabel/FormLabel";
+import { FormDescriptionMessage } from "../FormDescriptionMessage/FormDescriptionMessage";
+import { FormErrorMessage } from "../FormErrorMessage/FormErrorMessage";
+import { Option } from "../types/Option";
+import {
+  Select,
+} from "@radix-ui/themes";
 
-export interface SelectdProps {}
+export type SelectProps = {
+  options: Option[];
+} & FormControlProps<string | undefined>;
 
-/** Primary UI component for user interaction */
-export const SelectField = (props: SelectdProps) => {
-    return (
-        <Select.Root>
-            <Select.Trigger>
-                <Select.Value />
-        <Select.Icon />
-        </Select.Trigger>
+export const SelectField = (props: SelectProps) => {
+  const id = useId();
 
-        <Select.Portal>
+  const formItemId = `${id}-form-item`;
+  const formDescriptionId = `${id}-form-item-description`;
+  const formMessageId = `${id}-form-item-message`;
+  const isInvalid = props.isInvalid ?? !!props.errorMessage;
+
+  return (
+    <VStack gap={2}>
+      <FormLabel
+        formItemId={formItemId}
+        isInvalid={isInvalid}
+        label={props.label}
+      />
+      <Select.Root
+        value={props.value}
+        onValueChange={props.onChange}
+        disabled={props.isDisabled}
+        required={props.isRequired}
+      >
+      	<Select.Trigger />
         <Select.Content>
-            <Select.ScrollUpButton />
-        <Select.Viewport>
-            <Select.Item>
-                <Select.ItemText />
-        <Select.ItemIndicator />
-        </Select.Item>
-
-        <Select.Group>
-        <Select.Label />
-        <Select.Item>
-            <Select.ItemText />
-        <Select.ItemIndicator />
-        </Select.Item>
-        </Select.Group>
-
-        <Select.Separator />
-        </Select.Viewport>
-        <Select.ScrollDownButton />
-        <Select.Arrow />
+            {props.options.map((option) => (
+              <Select.Item key={option.value} value={option.value}>
+                {option.label}
+              </Select.Item>
+            ))}
         </Select.Content>
-        </Select.Portal>
-        </Select.Root>
-    );
+      </Select.Root>
+      <FormDescriptionMessage
+        formItemId={formItemId}
+        descriptionMessage={props.errorMessage}
+      />
+      <FormErrorMessage
+        formItemId={formItemId}
+        errorMessage={props.errorMessage}
+      />
+    </VStack>
+  );
 };

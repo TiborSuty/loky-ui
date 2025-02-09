@@ -1,13 +1,18 @@
 import React from "react";
 import * as RadixLabel from "@radix-ui/react-label";
-import styles from "./label.module.css";
+import styles from "./formLabel.module.css";
+import { Nullish } from "../types/Nullish";
 
-export type LabelProps = {};
+type FormLabel = {
+  formItemId: string;
+  label?: string | Nullish;
+  isInvalid: boolean;
+};
 
-export const Label = (props: LabelProps) => {
+export const FormLabel = (props: FormLabel) => {
   return (
     <RadixLabel.Root className={styles.label} htmlFor="firstName">
-      First name
+      {props.label}
     </RadixLabel.Root>
   );
 };

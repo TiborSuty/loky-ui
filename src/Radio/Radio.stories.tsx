@@ -1,9 +1,9 @@
 import { StoryObj } from "@storybook/react";
-import { Switch } from "./Switch";
+import { Radio } from "./Radio";
 
 const meta = {
-  title: "Switch",
-  component: Switch,
+  title: "Radio",
+  component: Radio,
 };
 
 export default meta;

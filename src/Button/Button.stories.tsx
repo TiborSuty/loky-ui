@@ -1,8 +1,9 @@
 import type { Meta, StoryObj } from "@storybook/react";
+import { VStack } from "../VStack/VStack";
 
 import { Button } from "./Button";
+import { ArrowBigUp } from "lucide-react";
 
-// More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {
   title: "Button",
   component: Button,
@@ -11,29 +12,82 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-// More on writing stories with args: https://storybook.js.org/docs/writing-stories/args
 export const Default: Story = {
   args: {
     title: "Button",
   },
 };
 
-export const Secondary: Story = {
+export const Variants: Story = {
   args: {
-    label: "Button",
+    title: "Button",
+  },
+  render: () => {
+    return (
+      <VStack gap={4}>
+        <Button title="Classic" variant="classic" />
+        <Button title="Solid" variant="solid" />
+        <Button title="soft" variant="soft" />
+        <Button title="surface" variant="surface" />
+        <Button title="outline" variant="outline" />
+        <Button title="ghost" variant="ghost" />
+        <Button title="danger" variant="danger" />
+        <Button title="primary" variant="primary" />
+        <Button title="secondary" variant="secondary" />
+      </VStack>
+    );
   },
 };
 
-export const Large: Story = {
+export const Loading: Story = {
   args: {
-    size: "large",
-    label: "Button",
+    title: "Button",
+    isLoading: true,
   },
 };
 
-export const Small: Story = {
+export const Sizes: Story = {
   args: {
-    size: "small",
-    label: "Button",
+    title: "Button",
+  },
+  render: () => {
+    return (
+      <VStack gap={4}>
+        <Button title="1" size="1" />
+        <Button title="2" size="2" />
+        <Button title="3" size="3" />
+        <Button title="4" size="4" />
+      </VStack>
+    );
+  },
+};
+
+export const Radius: Story = {
+  args: {
+    title: "Button",
+  },
+  render: () => {
+    return (
+      <VStack gap={4}>
+        <Button title="none" radius="none" />
+        <Button title="small" radius="small" />
+        <Button title="medium" radius="medium" />
+        <Button title="large" radius="large" />
+        <Button title="full" radius="full" />
+      </VStack>
+    );
+  },
+};
+
+export const Icons: Story = {
+  args: {
+    title: "Button",
+  },
+  render: () => {
+    return (
+      <VStack gap={4}>
+        <Button title="none" icon={ArrowBigUp} />
+      </VStack>
+    );
   },
 };

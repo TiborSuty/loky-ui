@@ -1,4 +1,5 @@
 import { TextField } from "./TextField";
+import { StoryObj } from "@storybook/react";
 
 const meta = {
   title: "TextField",
@@ -6,3 +7,11 @@ const meta = {
 };
 
 export default meta;
+type Story = StoryObj<typeof meta>;
+
+export const Primary: Story = {
+  args: {
+    primary: true,
+    label: "Button",
+  },
+};
