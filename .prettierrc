@@ -1,4 +1,12 @@
 {
-  "printWidth": 80,
-  "tabWidth": 2
-}
+    "bracketSpacing": false,
+    "singleQuote": true,
+    "trailingComma": "es5",
+    "printWidth": 100,
+    "importOrder": [],
+    "plugins": [],
+    "importOrderSeparation": true,
+    "importOrderCaseInsensitive": true,
+    "endOfLine": "auto"
+  }
+  

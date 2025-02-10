@@ -1,11 +1,13 @@
 import React, { useId } from "react";
 import styles from "./checkbox.module.css";
-import * as RadixCheckbox from "@radix-ui/react-checkbox";
+import { Checkbox as RadiCheckbox} from "@radix-ui/themes";
 import { Check } from "lucide-react";
 import { FormControlProps } from "../types/FormControlProps";
 import { VStack } from "../VStack/VStack";
 import { FormDescriptionMessage } from "../FormDescriptionMessage/FormDescriptionMessage";
 import { FormErrorMessage } from "../FormErrorMessage/FormErrorMessage";
+import { HStack } from "../HStack/HStack";
+import { FormLabel } from "../FormLabel/FormLabel";
 
 export type CheckboxProps = {} & FormControlProps<boolean>;
 
@@ -24,21 +26,14 @@ export const Checkbox = (props: CheckboxProps) => {
 
   return (
     <VStack>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <RadixCheckbox.Root
-          onCheckedChange={handleChange}
-          className={styles.checkbox}
-          defaultChecked
-          id="c1"
-        >
-          <RadixCheckbox.Indicator className={styles.indicator}>
-            <Check className="h-4 w-4" />
-          </RadixCheckbox.Indicator>
-        </RadixCheckbox.Root>
-        <label className={styles.Label} htmlFor="c1">
-          Accept terms and conditions.
-        </label>
-      </div>
+      <HStack gap={2}>
+        <RadiCheckbox defaultChecked />
+        <FormLabel
+            formItemId={formItemId}
+            isInvalid={isInvalid}
+            label={props.label}
+          />
+      </HStack>
       <FormDescriptionMessage
         formItemId={formItemId}
         descriptionMessage={props.errorMessage}

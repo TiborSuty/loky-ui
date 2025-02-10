@@ -1,12 +1,13 @@
 import React, { useId } from "react";
-import * as RadixSwitch from "@radix-ui/react-switch";
+
 import styles from "./switch.module.css";
 import { VStack } from "../VStack/VStack";
 import { FormDescriptionMessage } from "../FormDescriptionMessage/FormDescriptionMessage";
 import { FormErrorMessage } from "../FormErrorMessage/FormErrorMessage";
 import { FormControlProps } from "../types/FormControlProps";
 import { FormLabel } from "../FormLabel/FormLabel";
-
+import { Switch as RadixSwitch } from "@radix-ui/themes";
+import { HStack } from "../HStack/HStack";
 export type SwitchProps = {} & FormControlProps<boolean>;
 
 export const Switch = (props: SwitchProps) => {
@@ -24,21 +25,17 @@ export const Switch = (props: SwitchProps) => {
 
   return (
     <VStack>
-      <div style={{ display: "flex", alignItems: "center" }}>
-        <FormLabel
+        <HStack gap={2}>
+      <RadixSwitch checked={props.value} onCheckedChange={props.onChange} />
+      
+      <FormLabel
           formItemId={formItemId}
           isInvalid={isInvalid}
           label={props.label}
         />
-        <RadixSwitch.Root
-          className={styles.Root}
-          id={formItemId}
-          disabled={props.isDisabled}
-          onChange={handleChange}
-        >
-          <RadixSwitch.Thumb className={styles.Thumb} />
-        </RadixSwitch.Root>
-      </div>
+
+      </HStack>
+
       <FormDescriptionMessage
         formItemId={formItemId}
         descriptionMessage={props.helperText}

@@ -10,5 +10,7 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Test: Story = {
-  args: {},
+  args: {
+    label: "Accept terms and conditions.",
+  },
 };

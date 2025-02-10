@@ -37,7 +37,6 @@ export const Button = (props: ButtonProps) => {
       radius={props.radius}
       loading={props.isLoading}
       form={props.form}
-      className={button({ variant: props.variant })}
     >
       {props.icon && <props.icon className="mr-2" />}
       {props.title}
