@@ -32,7 +32,8 @@ export interface ButtonProps {
 export const Button = (props: ButtonProps) => {
   return (
     <RadixButton
-      // variant={props.variant}
+      // @ts-ignore
+      variant={props.variant}
       size={props.size}
       radius={props.radius}
       loading={props.isLoading}

@@ -1,5 +1,8 @@
+/// <reference types="vitest" />
 import path from "path";
 import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
+import tsconfigPaths from "vite-tsconfig-paths";
 import dts from "vite-plugin-dts";
 
 export default defineConfig({
@@ -9,7 +12,8 @@ export default defineConfig({
       //Defines the entry point for the library build. It resolves 
       //to src/index.ts,indicating that the library starts from this file.
       entry: path.resolve(__dirname, "src/index.ts"),
-      formats: ['es']
+      name: 'loky-ui',
+      fileName: (format) => `loky-ui.${format}.js`,
     },
     rollupOptions: {
         external: ["react", "react-dom", "react/jsx-runtime"],
@@ -22,7 +26,11 @@ export default defineConfig({
         },
     },
   },
-  plugins: [dts({
-    rollupTypes: true,
-  })],
+  plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
+  test: {
+    globals: true,
+    environment: "jsdom",
+    setupFiles: "./lib/test/setup.ts",
+    css: true,
+  },
 });
