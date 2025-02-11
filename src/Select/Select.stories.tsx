@@ -16,7 +16,7 @@ const options = [
   { value: "option3", label: "Option 3" },
 ];
 
-export const Default: Story = {
+export const Default = {
   args: {},
   render: () => {
     const [value, setValue] = useState<string | undefined>(undefined);

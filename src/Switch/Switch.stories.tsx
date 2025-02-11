@@ -10,20 +10,20 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
+export const Default = {
   args: {
     label: "Switch",
   },
 };
 
-export const Disabled: Story = {
+export const Disabled = {
   args: {
     label: "Switch",
     isDisabled: true,
   },
 };
 
-export const WithErrorMessage: Story = {
+export const WithErrorMessage = {
   args: {
     label: "Switch",
     errorMessage: "Error message",

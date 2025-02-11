@@ -18,6 +18,7 @@ export function FormButton<TFieldValues extends FieldValues = FieldValues>(
     <Button
       {...buttonProps}
       title={props.title}
+      // @ts-ignore
       isDisabled={props.isDisabled}
       isLoading={props.isLoading || isSubmitting}
       form={control.formId}

@@ -23,8 +23,7 @@ type FormSchema = {
   isChecked2: boolean;
 };
 
-export const Test: Story = {
-  args: {},
+export const Test = {
   render: () => {
     const onSubmit: FormSubmitHandler<FormSchema> = async (values) => {
       await action("onSubmit")(values);
@@ -69,6 +68,7 @@ export const Test: Story = {
               name="isChecked2"
               label="isChecked2"
             />
+            {/* @ts-ignore */}
             <FormButton type="submit" title="Send" control={control} />
           </VStack>
         )}

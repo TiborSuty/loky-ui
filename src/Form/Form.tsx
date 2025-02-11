@@ -96,6 +96,7 @@ export function Form<TFieldValues extends FieldValues = FieldValues>(
   return (
     <FormProvider {...formApi}>
       <form
+        // @ts-ignore
         css={props.isFullHeight ? { height: "100%" } : undefined}
         onSubmitCapture={(event) => {
           if (

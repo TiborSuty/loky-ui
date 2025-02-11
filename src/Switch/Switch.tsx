@@ -20,7 +20,7 @@ export const Switch = (props: SwitchProps) => {
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     console.log(event.target.checked);
-    props.onChange(event.target.checked);
+    props.onChange?.(event.target.checked);
   };
 
   return (

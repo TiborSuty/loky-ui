@@ -19,11 +19,6 @@ export const Checkbox = (props: CheckboxProps) => {
   const formMessageId = `${id}-form-item-message`;
   const isInvalid = props.isInvalid ?? !!props.errorMessage;
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(event.target.checked);
-    props.onChange(event.target.checked);
-  };
-
   return (
     <VStack>
       <HStack gap={2}>

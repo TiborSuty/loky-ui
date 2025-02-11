@@ -16,8 +16,7 @@ const options = [
   { value: "option3", label: "Option 3" },
 ];
 
-export const Test: Story = {
-  args: {},
+export const Test = {
   render: () => {
     const [value, setValue] = useState<string | undefined>(undefined);
 

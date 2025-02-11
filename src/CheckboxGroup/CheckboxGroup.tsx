@@ -8,7 +8,8 @@ import { Option } from "../types/Option";
 import { FlexboxDirection } from "../types/FlexboxDirection";
 import { useId } from "react";
 import { FormErrorMessage } from "../FormErrorMessage/FormErrorMessage";
-import { CheckboxGroup as CheckboxGroupRadix, Flex } from "@radix-ui/themes";
+import { CheckboxGroup as RadixCheckboxGroup, Flex } from "@radix-ui/themes";
+
 
 
 
@@ -32,6 +33,11 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
     const formMessageId = `${id}-form-item-message`;
     const isInvalid = props.isInvalid ?? !!props.errorMessage;
 
+
+    const handleChange = (value: string[] | undefined) => {
+        props.onChange?.(value ?? null);
+    };
+
     return (
         <VStack>
               <FormLabel
@@ -39,15 +45,16 @@ export const CheckboxGroup = (props: CheckboxGroupProps) => {
             isInvalid={isInvalid}
             label={props.label}
           />
-          <CheckboxGroupRadix.Root >
-            <Flex direction={props.direction ?? 'row'} gap={'2'}>
-            {props.options.map(({label, value, isDisabled}) => (
-                  <CheckboxGroupRadix.Item value={value} disabled={isDisabled}>
-                    {label}
-                  </CheckboxGroupRadix.Item>
-                ))}
+          {/* @ts-ignore */}
+          <RadixCheckboxGroup.Root value={props.value ?? []} onValueChange={handleChange}>
+            <Flex direction={props.direction ?? 'row'} gap="2">
+              {props.options.map(({label, value, isDisabled}) => (
+                <RadixCheckboxGroup.Item key={value} value={value} disabled={isDisabled}>
+                  {label}
+                </RadixCheckboxGroup.Item>
+              ))}
             </Flex>
-          </CheckboxGroupRadix.Root>
+          </RadixCheckboxGroup.Root>
           <FormDescriptionMessage
         formItemId={formItemId}
         descriptionMessage={props.errorMessage}

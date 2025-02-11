@@ -1,4 +1,4 @@
-import React, { useId } from "react";
+import React, { ChangeEvent, useId } from "react";
 import { TextField as RadixTextField } from "@radix-ui/themes";
 import { FormControlProps } from "../types/FormControlProps";
 import { VStack } from "../VStack/VStack";
@@ -16,6 +16,11 @@ export const TextField = (props: TextFieldProps) => {
   const formMessageId = `${id}-form-item-message`;
   const isInvalid = props.isInvalid ?? !!props.errorMessage;
 
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    props.onChange?.(event.target.value, event);
+  };
+
   return (
     <VStack>
       <FormLabel
@@ -25,8 +30,8 @@ export const TextField = (props: TextFieldProps) => {
       />
       <RadixTextField.Root
         id={id}
-        value={props.value}
-        onChange={props.onChange}
+        value={props.value ?? undefined}
+        onChange={handleChange}
         size="1"
         placeholder="Search the docs…"
         aria-describedby={
