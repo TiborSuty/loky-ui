@@ -29,8 +29,8 @@ export default defineConfig({
   plugins: [react(), tsconfigPaths(), dts({ rollupTypes: true })],
   test: {
     globals: true,
-    environment: "jsdom",
-    setupFiles: "./lib/test/setup.ts",
+    environment: "happy-dom",
+    setupFiles: ["./setup.ts"],
     css: true,
   },
 });
