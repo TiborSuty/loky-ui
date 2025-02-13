@@ -1,5 +1,6 @@
-import React from "react";
-import { Nullish } from "../types/Nullish";
+import React from 'react';
+import {Nullish} from '../types/Nullish';
+import {Text} from '@radix-ui/themes';
 
 type FormDescriptionProps = {
   formItemId: string;
@@ -11,5 +12,9 @@ export function FormDescriptionMessage(props: FormDescriptionProps) {
     return null;
   }
 
-  return <p id={props.formItemId}>{props.descriptionMessage}</p>;
+  return (
+    <Text size="1" color="gray" id={props.formItemId}>
+      {props.descriptionMessage}
+    </Text>
+  );
 }

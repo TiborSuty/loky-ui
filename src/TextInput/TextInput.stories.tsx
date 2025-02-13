@@ -12,5 +12,6 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Test: Story = {
+    // @ts-ignore
     args: {},
 }

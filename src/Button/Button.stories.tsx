@@ -7,21 +7,17 @@ import { ArrowBigUp } from "lucide-react";
 const meta = {
   title: "Button",
   component: Button,
+  args: {
+    title: "Button",
+  },
 } satisfies Meta<typeof Button>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Default: Story = {
-  args: {
-    title: "Button",
-  },
-};
+export const Default: Story = {};
 
 export const Variants: Story = {
-  args: {
-    title: "Button",
-  },
   render: () => {
     return (
       <VStack gap={4}>
@@ -41,15 +37,11 @@ export const Variants: Story = {
 
 export const Loading: Story = {
   args: {
-    title: "Button",
     isLoading: true,
   },
 };
 
 export const Sizes: Story = {
-  args: {
-    title: "Button",
-  },
   render: () => {
     return (
       <VStack gap={4}>
@@ -63,9 +55,6 @@ export const Sizes: Story = {
 };
 
 export const Radius: Story = {
-  args: {
-    title: "Button",
-  },
   render: () => {
     return (
       <VStack gap={4}>
@@ -80,9 +69,6 @@ export const Radius: Story = {
 };
 
 export const Icons: Story = {
-  args: {
-    title: "Button",
-  },
   render: () => {
     return (
       <VStack gap={4}>

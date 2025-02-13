@@ -11,8 +11,8 @@ export default meta;
 
 type Story = StoryObj<typeof meta>;
 
+// @ts-ignore
 export const Test: Story = {
-    args: {},
     render: (args) => {
         const [value, setValue] = useState<number[] | null>([10, 30]);
 
